@@ -6,35 +6,39 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 const BOT_TOKEN = "8270335085:AAEuDq3ahSuNM_1vGZTKkcXgs0QdeKYVnHo";
-const CHAT_ID = "5041856882";
+
+// BOTH OF YOU ARE NOW SUBSCRIBERS
+let CHAT_IDS = ["5041856882", "6777316075"]; // You + RingoEmpire
 
 app.get("/", (req, res) => {
-  res.send("GETITX BOT IS RUNNING");
+  res.send("GETITX BOT IS RUNNING - " + CHAT_IDS.length + " subscribers (You + RingoEmpire)");
 });
 
 app.get("/test", async (req, res) => {
   try {
-    await axios.get(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-      params: {
-        chat_id: CHAT_ID,
-        text: "Test message from GetItX bot."
-      }
-    });
+    // Send test to all subscribers
+    const sendPromises = CHAT_IDS.map(chatId => 
+      axios.post(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+        chat_id: chatId,
+        text: "🔄 Test message from GetItX bot to all subscribers!"
+      })
+    );
 
-    res.send("Telegram test message sent!");
+    await Promise.all(sendPromises);
+    res.send("Test message sent to " + CHAT_IDS.length + " subscribers! (You + RingoEmpire)");
+
   } catch (err) {
-    res.send("Error sending message: " + err.message);
+    res.send("Error: " + err.message);
   }
 });
 
-// FIXED ORDER ENDPOINT - Matches your frontend data structure
+// ORDER ENDPOINT - Sends to both of you
 app.post("/order", async (req, res) => {
-  console.log("📦 Order received:", JSON.stringify(req.body, null, 2));
+  console.log("📦 Order received - Sending to", CHAT_IDS.length, "subscribers (You + RingoEmpire)");
   
   try {
     const orderData = req.body;
     
-    // Format order message for Telegram
     let message = `
 🛒 *NEW ORDER - GETITX*  
 ━━━━━━━━━━━━━━━━━━━━
@@ -61,14 +65,19 @@ ${formatOrderItems(orderData.order?.items || [])}
 ━━━━━━━━━━━━━━━━━━━━
     `;
 
-    // Send to Telegram
-    await axios.post(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-      chat_id: CHAT_ID,
-      text: message,
-      parse_mode: 'Markdown'
-    });
+    // Send to BOTH of you
+    const sendPromises = CHAT_IDS.map(chatId => 
+      axios.post(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+        chat_id: chatId,
+        text: message,
+        parse_mode: 'Markdown'
+      }).catch(err => {
+        console.log(`Failed to send to ${chatId}:`, err.message);
+      })
+    );
 
-    console.log("✅ Order sent to Telegram successfully");
+    await Promise.all(sendPromises);
+    console.log("✅ Order sent to both subscribers successfully");
     res.json({ success: true, message: "Order received successfully!" });
 
   } catch (err) {
@@ -80,7 +89,6 @@ ${formatOrderItems(orderData.order?.items || [])}
   }
 });
 
-// Helper function to format order items
 function formatOrderItems(items) {
   if (!items || items.length === 0) return "• No items in cart";
   
@@ -92,6 +100,5 @@ function formatOrderItems(items) {
   }).join('\n');
 }
 
-// FIXED PORT
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log("🚀 GetItX Bot running on port " + PORT));
+app.listen(PORT, () => console.log("🚀 GetItX Bot running with 2 subscribers (You + RingoEmpire)"));

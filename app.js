@@ -9,7 +9,7 @@ const BOT_TOKEN = "8270335085:AAEuDq3ahSuNM_1vGZTKkcXgs0QdeKYVnHo";
 const CHAT_ID = "5041856882";
 
 app.get("/", (req, res) => {
-  res.send("BOT IS RUNNING");
+  res.send("GETITX BOT IS RUNNING");
 });
 
 app.get("/test", async (req, res) => {
@@ -17,11 +17,11 @@ app.get("/test", async (req, res) => {
     await axios.get(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
       params: {
         chat_id: CHAT_ID,
-        text: "Test message from Render bot."
+        text: "Test message from GetItX bot."
       }
     });
 
-    res.send("Sent!");
+    res.send("Telegram test message sent!");
   } catch (err) {
     res.send("Error sending message: " + err.message);
   }
@@ -94,4 +94,4 @@ function formatOrderItems(items) {
 
 // FIXED PORT
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log("🚀 Server running on port " + PORT));
+app.listen(PORT, () => console.log("🚀 GetItX Bot running on port " + PORT));

